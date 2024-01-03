@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 1111920013}
   - component: {fileID: 1111920012}
   m_Layer: 0
-  m_Name: bg
+  m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -445,7 +445,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -2
-  m_Sprite: {fileID: -5903174599373943351, guid: 82bf46fc20caaf846b9a194d28a50d36, type: 3}
+  m_Sprite: {fileID: -382418814983329448, guid: 9b433e2275b4b3a4ba50b83e90040125, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -466,7 +466,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.78, y: 1.78, z: 1.78}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -486,7 +486,7 @@ GameObject:
   - component: {fileID: 1410860221}
   - component: {fileID: 1410860222}
   m_Layer: 0
-  m_Name: klatsche_0
+  m_Name: Swatter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -545,7 +545,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.33, y: 9.4}
+    oldSize: {x: 5.12, y: 10.24}
     newSize: {x: 4.33, y: 9.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -593,8 +593,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 2202392363881955134, guid: 728a951552f01b14cad1859cc20c4d42, type: 3}
+  m_SortingOrder: 11
+  m_Sprite: {fileID: 21300000, guid: fb9dcc823467cfc4aa2c773fdf58db1c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -630,7 +630,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cb5297b8e88471e40adbcde98d171717, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e5bc0da395e591c4eb7897f4b4aa657f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

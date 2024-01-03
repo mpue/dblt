@@ -58,7 +58,7 @@ public class FlyKiller : MonoBehaviour
         RaycastHit2D hit = Physics2D.BoxCast(transform.position, GetComponent<BoxCollider2D>().size, 0, Camera.main.transform.forward);
         if (hit && hit.collider.gameObject.GetComponent<CurvedPathMover>() != null)
         {
-            hit.collider.gameObject.GetComponent<SpriteRenderer>().sprite = deadSprite;
+            //hit.collider.gameObject.GetComponent<SpriteRenderer>().sprite = deadSprite;
             hit.collider.gameObject.GetComponent<CurvedPathMover>().enabled = false;
         }
 
@@ -75,7 +75,7 @@ public class FlyKiller : MonoBehaviour
     {
         if (collision.collider.gameObject.GetComponent<CurvedPathMover>() != null)
         {
-            collision.collider.gameObject.GetComponent<SpriteRenderer>().sprite = deadSprite;
+            //collision.collider.gameObject.GetComponent<SpriteRenderer>().sprite = deadSprite;
             collision.collider.gameObject.GetComponent<CurvedPathMover>().enabled = false;
         }
     }
