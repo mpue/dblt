@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Target
   - Beehive
+  - OutsidePos
   layers:
   - Default
   - TransparentFX

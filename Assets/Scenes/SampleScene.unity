@@ -397,8 +397,8 @@ GameObject:
   m_Component:
   - component: {fileID: 707173023}
   m_Layer: 0
-  m_Name: Beehive2
-  m_TagString: Beehive
+  m_Name: OutsidePos
+  m_TagString: OutsidePos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -516,7 +516,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beesAtHome: 0
+  beesGoHome: 0
   beesHit: 0
+  hiveLevel: 0
 --- !u!1 &1410860216
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,8 +908,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2132539456}
   m_Layer: 0
-  m_Name: Beehive1
-  m_TagString: Beehive
+  m_Name: OutsidePos
+  m_TagString: OutsidePos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

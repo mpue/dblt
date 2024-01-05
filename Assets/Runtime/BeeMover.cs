@@ -4,47 +4,64 @@ using UnityEngine;
 public class BeeMover : MonoBehaviour
 {
     public float speed = 1.0f;
-    public float waitTime = 2.0f;
-    public Vector3 destinationPosition;
-    public Vector3 homePosition;
-    public GameObject[] Target;
-    public GameObject[] Beehive;
-    public bool destinationReached = false;
-    public bool homeReached = false; 
+    public float waitTime = 1.0f;
+    Vector3 destinationPosition;
+    Vector3 OutsidePosition;
+    GameObject[] Target;
+    GameObject[] OutsidePos;
+    GameObject Beehive;
+    bool destinationReached = false;
+    bool posReached = false;
     GameController GameController;
 
     private void Start()
     {
         GameController = FindFirstObjectByType<GameController>();
-        Target = GameObject.FindGameObjectsWithTag("Target");
-        destinationPosition = Target[Random.Range(0, Target.Length)].transform.position;
-        Beehive = GameObject.FindGameObjectsWithTag("Beehive");
-        homePosition = Beehive[Random.Range(0, Beehive.Length)].transform.position;
+
+        if (!GameController.hiveLevel)
+        {             
+            Target = GameObject.FindGameObjectsWithTag("Target");
+            destinationPosition = Target[Random.Range(0, Target.Length)].transform.position;
+            OutsidePos = GameObject.FindGameObjectsWithTag("OutsidePos");
+            OutsidePosition = OutsidePos[Random.Range(0, OutsidePos.Length)].transform.position;
+        }
+        else
+        {
+            Beehive = GameObject.FindGameObjectWithTag("Beehive");
+            destinationPosition = Beehive.transform.position;
+        }
     }
 
     void Update()
     {
-        if (!homeReached)
+        if (!posReached)
         {
             if (!destinationReached)
             {
-                MoveObject(destinationPosition);
+                MoveBee(destinationPosition);
             }
             else
             {
-                StartCoroutine(MoveOut());
+                if (!GameController.hiveLevel)
+                {
+                    StartCoroutine(MoveOut());
+                }
+                else
+                {                   
+                    GameController.beesAtHome = GameController.beesAtHome + 1;
+                    Destroy(gameObject);
+                }
             }
         }
         else
         {
-            GameController.beesAtHome = GameController.beesAtHome +1;
+            GameController.beesGoHome = GameController.beesGoHome + 1;
             Destroy(gameObject);
         }
     }
 
-    void MoveObject(Vector3 newTarget)
+    void MoveBee(Vector3 newTarget)
     {
-
         LookAtPathDirection(newTarget);
 
         float step = speed * Time.deltaTime;
@@ -65,12 +82,11 @@ public class BeeMover : MonoBehaviour
 
     IEnumerator MoveOut()
     {
-        //Wait until gun has rotated
-        yield return new WaitForSeconds(1);
-        GoHome(homePosition);
+        yield return new WaitForSeconds(waitTime);
+        GoOutside(OutsidePosition);
     }
 
-    void GoHome(Vector3 newTarget)
+    void GoOutside(Vector3 newTarget)
     {
         LookAtPathDirection(newTarget);
 
@@ -79,7 +95,7 @@ public class BeeMover : MonoBehaviour
 
         if (transform.position == newTarget)
         {
-            homeReached = true;
+            posReached = true;
         }
     }
 }

@@ -6,15 +6,9 @@ public class BeeSpawner : MonoBehaviour
     public float spawnInterval = 5;
     private float spawnTime;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         spawnTime += Time.deltaTime;
-
         if (spawnTime > spawnInterval)
         {
             spawnTime = 0;
@@ -30,10 +24,8 @@ public class BeeSpawner : MonoBehaviour
         x += Mathf.Sign(x);
         y += Mathf.Sign(y);
         Vector3 randomPoint = new(x, y);
-
-        randomPoint.z = 1f; // set this to whatever you want the distance of the point from the camera to be. Default for a 2D game would be 10.
+        randomPoint.z = 10f; // set this to whatever you want the distance of the point from the camera to be. Default for a 2D game would be 10.
         Vector3 worldPoint = Camera.main.ViewportToWorldPoint(randomPoint);
-
         return worldPoint;
     }
 }
