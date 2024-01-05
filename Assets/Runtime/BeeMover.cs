@@ -9,7 +9,7 @@ public class BeeMover : MonoBehaviour
     Vector3 OutsidePosition;
     GameObject[] Target;
     GameObject[] OutsidePos;
-    GameObject Beehive;
+    GameObject[] Beehives;
     bool destinationReached = false;
     bool posReached = false;
     GameController GameController;
@@ -27,8 +27,8 @@ public class BeeMover : MonoBehaviour
         }
         else
         {
-            Beehive = GameObject.FindGameObjectWithTag("Beehive");
-            destinationPosition = Beehive.transform.position;
+            Beehives = GameObject.FindGameObjectsWithTag("Beehive");
+            destinationPosition = Beehives[Random.Range(0, Beehives.Length)].transform.position;
         }
     }
 

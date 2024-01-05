@@ -477,7 +477,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -2
-  m_Sprite: {fileID: -382418814983329448, guid: 9b433e2275b4b3a4ba50b83e90040125, type: 3}
+  m_Sprite: {fileID: -2594574073591264013, guid: ac0bfc5d95288a6408d34a9eccd98ba3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -518,7 +518,7 @@ MonoBehaviour:
   beesAtHome: 0
   beesGoHome: 0
   beesHit: 0
-  hiveLevel: 0
+  hiveLevel: 1
 --- !u!1 &1315727135
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,8 +549,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomAppearTime: 0
-  minWaitTime: 10
-  maxWaitTime: 30
+  minWaitTime: 1
+  maxWaitTime: 2
   bumbleBeePrefab: {fileID: 280468118859642634, guid: a99e4a3a957b6764b82fc40738fda82f, type: 3}
   flyOnce: 1
 --- !u!4 &1315727137
@@ -638,7 +638,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 2.331874}
+  m_Offset: {x: 0, y: 3.1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -648,7 +648,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.33, y: 4.7037477}
+  m_Size: {x: 3.4, y: 3.4}
   m_EdgeRadius: 0
 --- !u!212 &1410860219
 SpriteRenderer:
@@ -839,37 +839,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &1522126195
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1522126196}
-  m_Layer: 0
-  m_Name: Target2
-  m_TagString: Target
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1522126196
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1522126195}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.65, y: -1.41, z: 0.075247}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1845205071
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,8 +849,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1845205072}
   m_Layer: 0
-  m_Name: Target1
-  m_TagString: Target
+  m_Name: Beehive
+  m_TagString: Beehive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -895,7 +864,38 @@ Transform:
   m_GameObject: {fileID: 1845205071}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.72, y: 0.87, z: 0.075247}
+  m_LocalPosition: {x: 0.11, y: -0.28, z: 0.075247}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2053193374
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2053193375}
+  m_Layer: 0
+  m_Name: Beehive
+  m_TagString: Beehive
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2053193375
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053193374}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.55, y: -0.44, z: 0.075247}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -989,7 +989,7 @@ SceneRoots:
   - {fileID: 336227499}
   - {fileID: 1410860217}
   - {fileID: 1845205072}
-  - {fileID: 1522126196}
+  - {fileID: 2053193375}
   - {fileID: 2132539456}
   - {fileID: 707173023}
   - {fileID: 1315727137}
