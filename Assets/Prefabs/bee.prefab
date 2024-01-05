@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5356146396116042222}
   - component: {fileID: 1561185402052601296}
-  - component: {fileID: 7615759962086097596}
   - component: {fileID: -6358546656238779344}
   - component: {fileID: -7623120294118680951}
+  - component: {fileID: -2924961325149048001}
   m_Layer: 0
   m_Name: bee
   m_TagString: Untagged
@@ -87,19 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7615759962086097596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5734885095294274269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40c1aa7d855e1ee4885a6562ed645eb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
 --- !u!61 &-6358546656238779344
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -173,3 +160,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-2924961325149048001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5734885095294274269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4843d1da8f7f754e8e7346a750a8b06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetPoints: []
+  moveSpeed: 5
+  targetDistance: 0.1
