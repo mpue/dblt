@@ -6,7 +6,6 @@ public class FlySpawner : MonoBehaviour
     public float spawnInterval;
     private float spawnTime;
 
-
     void Start()
     {
 
