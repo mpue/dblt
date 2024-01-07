@@ -4,10 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Target
   - Beehive
-  - OutsidePos
   - Swatter
+  - GoHomePos
+  - FailPos
+  - FlowerPos
+  - Fly
+  - Bee
   layers:
   - Default
   - TransparentFX

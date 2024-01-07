@@ -6,11 +6,11 @@ public class Swatter : MonoBehaviour
     public GameObject flyswatter;
     public Vector2 flyswatterOffset;
     private AudioSource flyswatterAudioSource;
-    GameController GameController;
+    LevelController LevelController;
 
     private void Start()
     {
-        GameController = FindFirstObjectByType<GameController>();
+        LevelController = FindFirstObjectByType<LevelController>();
         flyswatter.GetComponent<BoxCollider2D>().enabled = false;
         flyswatter.GetComponent<SpriteRenderer>().enabled = false;
         flyswatterAudioSource = GetComponent<AudioSource>();

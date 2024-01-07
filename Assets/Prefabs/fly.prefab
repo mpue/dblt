@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5414707414557830830}
   m_Layer: 0
   m_Name: fly
-  m_TagString: Untagged
+  m_TagString: Fly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
