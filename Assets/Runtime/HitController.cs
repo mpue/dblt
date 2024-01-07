@@ -17,34 +17,38 @@ public class HitController : MonoBehaviour
     { 
         Debug.Log("Collision!");
 
-        //Check kind of Collision
+        //Check kind of collision - is it the flyswatter?
         if (collision.gameObject.CompareTag("Swatter"))
         {
             gameObject.GetComponent<Collider2D>().enabled = false;
 
+            //Is it a fly?
             if (GetComponent<CurvedPathMover>()) 
             {
                 gameObject.GetComponent<CurvedPathMover>().enabled = false;
                 LevelController.flyHit = LevelController.flyHit + 1;
             }
+            //Is it a bee?
             else if (GetComponent<BeeMover>())
             {
                 gameObject.GetComponent<BeeMover>().enabled = false;
                 LevelController.beesHit = LevelController.beesHit + 1;
             }
+            //Is it a blublebee?
             else if (GetComponent<BumblebeeSpawner>())
             {
                 gameObject.GetComponent<BumblebeeSpawner>().enabled = false;
-                LevelController.GameOver();
+                LevelController.bumbleBeeHit = true;
             }
+            //In any case, it is definitiv a hit
             StartCoroutine(Hit(falltime));
         }
-
+        //Is it a fly colliding with a bee
         if (collision.gameObject.CompareTag("Fly"))
         { 
             if (gameObject.CompareTag("Bee"))
             {
-                Debug.Log("Bee Collision with Fly!");
+                //If is is a bee and NOT success(allready visited the flower) then fail
                 if (!gameObject.GetComponent<BeeMover>().success) 
                 { 
                     gameObject.GetComponent<BeeMover>().fail = true;
