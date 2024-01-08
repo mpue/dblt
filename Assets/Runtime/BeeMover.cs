@@ -18,10 +18,16 @@ public class BeeMover : MonoBehaviour
     public bool fail = false;
     public bool success = false;
     LevelController LevelController;
+    GameController GameController;
+
+    private void Awake()
+    {
+        GameController = FindFirstObjectByType<GameController>();
+    }
 
     private void Start()
     {
-        LevelController = FindFirstObjectByType<LevelController>();
+        LevelController = FindFirstObjectByType<LevelController>();      
         FailPos = GameObject.FindGameObjectsWithTag("FailPos");
         FailPosition = FailPos[Random.Range(0, FailPos.Length)].transform.position;
 
@@ -58,14 +64,14 @@ public class BeeMover : MonoBehaviour
                     }
                     else
                     {
-                        LevelController.beesAtHome = LevelController.beesAtHome + 1;
+                        GameController.beesAtHome++;
                         Destroy(gameObject);
                     }
                 }
             }
             else
             {
-                LevelController.beesGoHome = LevelController.beesGoHome + 1;
+                GameController.beesGoHome++;
                 Destroy(gameObject);
             }
         }
@@ -77,7 +83,7 @@ public class BeeMover : MonoBehaviour
             }
             else
             {
-                LevelController.beesFail = LevelController.beesFail + 1;
+                GameController.beesFail++;
                 Destroy(gameObject);
             }
         }

@@ -19,8 +19,8 @@ public class BeeSpawner : MonoBehaviour
 
     private Vector3 GetRandomPosOffScreen()
     {
-        float x = Random.Range(-0.2f, 0.2f);
-        float y = Random.Range(-0.2f, 0.2f);
+        float x = Random.Range(-0.02f, 0.02f);
+        float y = Random.Range(-0.02f, 0.02f);
         x += Mathf.Sign(x);
         y += Mathf.Sign(y);
         Vector3 randomPoint = new(x, y);

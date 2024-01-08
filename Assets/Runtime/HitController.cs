@@ -5,18 +5,16 @@ using UnityEngine;
 
 public class HitController : MonoBehaviour
 {
-    public float falltime = 1;
-    LevelController LevelController;
+    public float falltime = 1; 
+    GameController GameController;
 
-    private void Start()
+    private void Awake()
     {
-        LevelController = FindFirstObjectByType<LevelController>();
+        GameController = FindFirstObjectByType<GameController>();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
-    { 
-        Debug.Log("Collision!");
-
+    {    
         //Check kind of collision - is it the flyswatter?
         if (collision.gameObject.CompareTag("Swatter"))
         {
@@ -26,22 +24,31 @@ public class HitController : MonoBehaviour
             if (GetComponent<CurvedPathMover>()) 
             {
                 gameObject.GetComponent<CurvedPathMover>().enabled = false;
-                LevelController.flyHit = LevelController.flyHit + 1;
+                GameController.flyHit++;
+                StartCoroutine(Hit(falltime));
             }
             //Is it a bee?
             else if (GetComponent<BeeMover>())
             {
-                gameObject.GetComponent<BeeMover>().enabled = false;
-                LevelController.beesHit = LevelController.beesHit + 1;
+                gameObject.GetComponent<BeeMover>().fail = true;
+                GameController.beesHits++;
+                StartCoroutine(Hit(falltime));
             }
-            //Is it a blublebee?
-            else if (GetComponent<BumblebeeSpawner>())
-            {
-                gameObject.GetComponent<BumblebeeSpawner>().enabled = false;
-                LevelController.bumbleBeeHit = true;
+            //Is it a bumblebee?
+            else if (GetComponent<BumbleBee>())
+            {                 
+                GameController.bumbleBeeHits++;
+
+                Debug.Log("Collision! Bumblebee: " + GameController.bumbleBeeHits);
+
+                if (GameController.bumbleBeeHits >= GameController.howManyBumbleBeeHits)
+                {
+                    gameObject.GetComponent<BumbleBee>().enabled = false;
+                    Debug.Log("Collision! Bumblebee: OUT");
+                    StartCoroutine(Hit(falltime));
+                }
             }
-            //In any case, it is definitiv a hit
-            StartCoroutine(Hit(falltime));
+             
         }
         //Is it a fly colliding with a bee
         if (collision.gameObject.CompareTag("Fly"))
@@ -50,7 +57,7 @@ public class HitController : MonoBehaviour
             {
                 //If is is a bee and NOT success(allready visited the flower) then fail
                 if (!gameObject.GetComponent<BeeMover>().success) 
-                { 
+                {               
                     gameObject.GetComponent<BeeMover>().fail = true;
                 }
             }
@@ -63,7 +70,7 @@ public class HitController : MonoBehaviour
         {
             yield return new WaitForSeconds(value);
             gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
-            Destroy(gameObject, 3f);
+            Destroy(gameObject, value * 2);
         }
     }
 }
