@@ -64,7 +64,7 @@ public class BeeMover : MonoBehaviour
                     }
                     else
                     {
-                        GameController.beesAtHome++;
+                        GameController.beesLeft--;
                         Destroy(gameObject);
                     }
                 }

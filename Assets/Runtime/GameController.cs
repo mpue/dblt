@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
     public Text RoundText;
 
     //Do not change
-    public int beesAtHome = 0;
+    public int beesLeft = 0;
     public int beesGoHome = 0;
     public int beesHits = 0;
     public int beesFail = 0;
@@ -44,7 +44,13 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        StartNewGame();
+    }
+
+    void StartNewGame()
+    {
         howManyBees = howManyBees * difficulty;
+        beesLeft = howManyBees;
         howManyBeesHit = howManyBeesHit / difficulty;
         howManyBeesFail = howManyBeesFail / difficulty;
         howManyBumbleBeeHits = howManyBumbleBeeHits / difficulty;
@@ -57,14 +63,14 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        BeesHomeText.text = beesAtHome.ToString();
+        BeesHomeText.text = beesLeft.ToString();
         TimerText.text = actualTime.ToString();
         RoundText.text = actualRound.ToString();
 
-        if (beesAtHome == howManyBees)
+        if (beesLeft == 0)
         {
             WonGame();
-            Debug.Log("Won Game - beesAtHome: " + beesAtHome);
+            Debug.Log("Won Game - beesAtHome: " + beesLeft);
         }
         //Game Over -> Too many bees hit
         if (beesHits == howManyBeesHit)
