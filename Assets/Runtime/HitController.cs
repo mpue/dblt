@@ -8,9 +8,14 @@ public class HitController : MonoBehaviour
     public float falltime = 1; 
     GameController GameController;
 
+    public AudioClip beeHitClip;
+    private AudioSource source;
+
     private void Awake()
     {
         GameController = FindFirstObjectByType<GameController>();
+        source = GetComponent<AudioSource>();
+        source.clip = beeHitClip;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -32,6 +37,7 @@ public class HitController : MonoBehaviour
             {
                 gameObject.GetComponent<BeeMover>().fail = true;
                 GameController.beesHits++;
+                source.PlayOneShot(beeHitClip);
                 StartCoroutine(Hit(falltime));
             }
             //Is it a bumblebee?
